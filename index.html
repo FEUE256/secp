@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Standard Error Code Protocol (SECP)</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+  th, td { border: 1px solid #999; padding: 0.5em; text-align: left; }
+  th { background-color: #eee; }
+
+  /* Color coding */
+  .fss { background-color: #d0e7ff; }      /* light blue */
+  .ffcp { background-color: #ffc0cb; }     /* pink */
+  .cb { background-color: #ffd0d0; }       /* light red */
+  .scs { background-color: #f0d0ff; }      /* light purple */
+  .http { background-color: #d0ffd8; }     /* light green */
+  .win32 { background-color: #ff8c00; }    /* dark  orange */
+
+  /* Search box */
+  #search { padding: 5px; width: 300px; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<h1>The Standard Error Code Protocol (SECP)</h1>
+
+<input type="text" id="search" placeholder="Search for code or name...">
+
+<table id="errorTable">
+<tr>
+<th>Error Code / Status</th>
+<th>Name / Category</th>
+<th>Description</th>
+</tr>
+
+<!-- FSS / FFCP / CB / SCS -->
+<tr class="fss"><td>0x0000</td><td>SUCCESS</td><td>The program completed successfully</td></tr>
+<tr class="fss"><td>0x0001</td><td>ERR_UNKNOWN</td><td>Unknown error</td></tr>
+<tr class="fss"><td>0x0002</td><td>ERR_DONT_FIND_ROOT</td><td>Cannot find E:\ or E:\Test</td></tr>
+<tr class="fss"><td>0x0003</td><td>ERR_PERMISSION_DENIED</td><td>Missing required permissions</td></tr>
+<tr class="fss"><td>0x0004</td><td>ERR_WRONG_FSS_CODE</td><td>Wrong dev code in startup of FSS</td></tr>
+<tr class="fss"><td>0x0005</td><td>ERR_USR_NOT_TERMS</td><td>User did not accept the terms of use</td></tr>
+<tr class="fss"><td>0x0006</td><td>ERR_USR_SYS_REQ</td><td>User did not meet the system requirements for FSS</td></tr>
+<tr class="fss"><td>0x0007</td><td>ERR_FAIL_REG</td><td>Failed to import to regedit</td></tr>
+<tr class="fss"><td>0x0008</td><td>ERR_DF_PROGRAM</td><td>Failed to open program (syntax: Error: 0x0008 [programPath])</td></tr>
+<tr class="fss"><td>0x0009</td><td>ERR_FAIL_SYS_THEME</td><td>Failed to read system theme</td></tr>
+<tr class="fss"><td>0x0010</td><td>ERR_FAIL_COR_LOG</td><td>Failed to open or read file</td></tr>
+<tr class="fss"><td>0x0011</td><td>ERR_CON_BS</td><td>FSS can't connect to backend server</td></tr>
+<tr class="fss"><td>0x0012</td><td>ERR_NO_INT</td><td>User has no internet connection</td></tr>
+<tr class="fss"><td>0x0013</td><td>ERR_CN_OW</td><td>Can't open website</td></tr>
+<tr class="fss"><td>0x0014</td><td>ERR_DNF_DLL</td><td>Can't find DLL (syntax: Error: 0x0014 [DllPath])</td></tr>
+<tr class="ffcp"><td>0x0015</td><td>ERR_WRONG_FFCP_CODE</td><td>Wrong dev code in FFCP</td></tr>
+<tr class="fss"><td>0x0016</td><td>ERR_CN_LOAD_ICO</td><td>Can't load icon file</td></tr>
+<tr class="fss"><td>0x0017</td><td>ERR_CND_ZIP</td><td>Failed to compress to zip</td></tr>
+<tr class="fss"><td>0x0018</td><td>ERR_FAIL_TRL</td><td>Failed to reset logs</td></tr>
+<tr class="fss"><td>0x0019</td><td>ERR_CNC_CHECK_DS</td><td>Can't check disk space</td></tr>
+<tr class="fss"><td>0x0020</td><td>ERR_PING_FAIL</td><td>Ping failed (can't ping feue256.github.io/fss, only feue256.github.io)</td></tr>
+<tr class="fss"><td>0x0021</td><td>ERR_FAIL_LS</td><td>Failed to load services</td></tr>
+<tr class="fss"><td>0x0022</td><td>ERR_FAIL_TI_NPM</td><td>Failed to install NPM package</td></tr>
+<tr class="fss"><td>0x0023</td><td>ERR_FAIL_TC_GIT</td><td>Error when reading Git status</td></tr>
+<tr class="fss"><td>0x0024</td><td>ERR_FAIL_TB</td><td>Failed to backup</td></tr>
+<tr class="fss"><td>0x0025</td><td>ERR_SF_DE</td><td>Source folder does not exist</td></tr>
+<tr class="fss"><td>0x0026</td><td>ERR_DF_DE</td><td>Destination folder does not exist</td></tr>
+<tr class="fss"><td>0x0027</td><td>ERR_FAIL_TL_TASKS</td><td>Can't load processes</td></tr>
+<tr class="fss"><td>0x0028</td><td>ERR_FAIL_TK_PID</td><td>Can't kill the PID</td></tr>
+<tr class="fss"><td>0x0029</td><td>ERR_FAIL_TS_Service</td><td>Fail to start service</td></tr>
+<tr class="fss"><td>0x0030</td><td>ERR_FAIL_TST</td><td>Fail to stop service</td></tr>
+<tr class="fss"><td>0x0031</td><td>ERR_FAIL_TRA</td><td>Most have a username and password</td></tr>
+<tr class="fss"><td>0x0032</td><td>ERR_HNA</td><td>Cannot run FSS/FFCP in your country</td></tr>
+<tr class="fss"><td>0x0033</td><td>ERR_CN_FETCH</td><td>Cannot fetch JSON data from https://ipwhois.app/json/</td></tr>
+<tr class="fss"><td>0x0034</td><td>ERR_CA_FILE</td><td>Cannot access file (usually in use by another program)</td></tr>
+<tr class="fss"><td>0x0035</td><td>ERR_ADB_FAP</td><td>Fail to start ADB process</td></tr>
+<tr class="fss"><td>0x0036</td><td>ERR_ADB_OOT</td><td>No or more than 1 devices connected to ADB</td></tr>
+<tr class="fss"><td>0x0037</td><td>ERR_ADB_FTPO</td><td>ADB failed to power off device</td></tr>
+<tr class="fss"><td>0x0038</td><td>ERR_ADB_FTAW</td><td>Failed to activate ADB over Wi-Fi</td></tr>
+<tr class="fss"><td>0x0039</td><td>ERR_ADB_FTCW</td><td>Failed to connect over Wi-Fi</td></tr>
+<tr class="fss"><td>0x0040</td><td>ERR_FSSAD_CNPOF</td><td>Cannot open FSS add-on file or file not found</td></tr>
+<tr class="scs"><td>0x0041</td><td>ERR_SCS_CB</td><td>System Crash Screen (SCS) in Cyber::Boot UEFI version</td></tr>
+
+<!-- HTTP / HTTPS Status Codes -->
+<tr class="http"><td>100</td><td>Continue</td><td>Continue with the request</td></tr>
+<tr class="http"><td>101</td><td>Switching Protocols</td><td>Switching protocols</td></tr>
+<tr class="http"><td>102</td><td>Processing</td><td>Request is being processed</td></tr>
+<tr class="http"><td>103</td><td>Early Hints</td><td>Used for preloading resources</td></tr>
+<tr class="http"><td>200</td><td>OK</td><td>Request succeeded</td></tr>
+<tr class="http"><td>201</td><td>Created</td><td>Resource successfully created</td></tr>
+<tr class="http"><td>202</td><td>Accepted</td><td>Request accepted for processing</td></tr>
+<tr class="http"><td>203</td><td>Non-Authoritative Information</td><td>Response returned from a transforming proxy</td></tr>
+<tr class="http"><td>204</td><td>No Content</td><td>Request succeeded, no content returned</td></tr>
+<tr class="http"><td>205</td><td>Reset Content</td><td>Request succeeded, user-agent should reset view</td></tr>
+<tr class="http"><td>206</td><td>Partial Content</td><td>Partial resource returned</td></tr>
+<tr class="http"><td>207</td><td>Multi-Status</td><td>Multiple status codes returned</td></tr>
+<tr class="http"><td>208</td><td>Already Reported</td><td>Resource already reported</td></tr>
+<tr class="http"><td>226</td><td>IM Used</td><td>Instance manipulations applied</td></tr>
+<tr class="http"><td>300</td><td>Multiple Choices</td><td>Multiple options for resource</td></tr>
+<tr class="http"><td>301</td><td>Moved Permanently</td><td>Resource moved permanently</td></tr>
+<tr class="http"><td>302</td><td>Found</td><td>Resource found (temporary redirect)</td></tr>
+<tr class="http"><td>303</td><td>See Other</td><td>Redirect to another URI</td></tr>
+<tr class="http"><td>304</td><td>Not Modified</td><td>Resource not modified since last request</td></tr>
+<tr class="http"><td>305</td><td>Use Proxy</td><td>Access resource via proxy</td></tr>
+<tr class="http"><td>307</td><td>Temporary Redirect</td><td>Temporary redirection</td></tr>
+<tr class="http"><td>308</td><td>Permanent Redirect</td><td>Permanent redirection</td></tr>
+<tr class="http"><td>400</td><td>Bad Request</td><td>Client sent a malformed request</td></tr>
+<tr class="http"><td>401</td><td>Unauthorized</td><td>Authentication required</td></tr>
+<tr class="http"><td>402</td><td>Payment Required</td><td>Reserved for future use</td></tr>
+<tr class="http"><td>403</td><td>Forbidden</td><td>Access to the resource is forbidden</td></tr>
+<tr class="http"><td>404</td><td>Not Found</td><td>The requested resource was not found</td></tr>
+<tr class="http"><td>405</td><td>Method Not Allowed</td><td>HTTP method not allowed for this resource</td></tr>
+<tr class="http"><td>406</td><td>Not Acceptable</td><td>Resource cannot generate content acceptable by client</td></tr>
+<tr class="http"><td>407</td><td>Proxy Authentication Required</td><td>Proxy authentication is required</td></tr>
+<tr class="http"><td>408</td><td>Request Timeout</td><td>Server timed out waiting for request</td></tr>
+<tr class="http"><td>409</td><td>Conflict</td><td>Request conflicts with current state of server</td></tr>
+<tr class="http"><td>410</td><td>Gone</td><td>Resource no longer available</td></tr>
+<tr class="http"><td>411</td><td>Length Required</td><td>Request must include Content-Length</td></tr>
+<tr class="http"><td>412</td><td>Precondition Failed</td><td>Precondition given in request headers failed</td></tr>
+<tr class="http"><td>413</td><td>Payload Too Large</td><td>Request body is too large</td></tr>
+<tr class="http"><td>414</td><td>URI Too Long</td><td>Request URI is too long</td></tr>
+<tr class="http"><td>415</td><td>Unsupported Media Type</td><td>Request media type is not supported</td></tr>
+<tr class="http"><td>416</td><td>Range Not Satisfiable</td><td>Requested range cannot be satisfied</td></tr>
+<tr class="http"><td>417</td><td>Expectation Failed</td><td>Expectation in request headers could not be met</td></tr>
+<tr class="http"><td>418</td><td>I'm a Teapot</td><td>RFC 2324 Easter egg – teapot status</td></tr>
+<tr class="http"><td>421</td><td>Misdirected Request</td><td>Request directed to server that cannot produce a response</td></tr>
+<tr class="http"><td>422</td><td>Unprocessable Entity</td><td>Request well-formed but cannot be processed</td></tr>
+<tr class="http"><td>423</td><td>Locked</td><td>Resource is locked</td></tr>
+<tr class="http"><td>424</td><td>Failed Dependency</td><td>Request failed due to failed dependency</td></tr>
+<tr class="http"><td>425</td><td>Too Early</td><td>Server unwilling to risk processing request</td></tr>
+<tr class="http"><td>426</td><td>Upgrade Required</td><td>Client should switch to a different protocol</td></tr>
+<tr class="http"><td>428</td><td>Precondition Required</td><td>Precondition required in request headers</td></tr>
+<tr class="http"><td>429</td><td>Too Many Requests</td><td>Client sent too many requests in a given time</td></tr>
+<tr class="http"><td>431</td><td>Request Header Fields Too Large</td><td>Request headers too large</td></tr>
+<tr class="http"><td>451</td><td>Unavailable For Legal Reasons</td><td>Resource unavailable due to legal reasons</td></tr>
+<tr class="http"><td>500</td><td>Internal Server Error</td><td>Internal server error</td></tr>
+<tr class="http"><td>501</td><td>Not Implemented</td><td>Server does not support requested functionality</td></tr>
+<tr class="http"><td>502</td><td>Bad Gateway</td><td>Invalid response from upstream server</td></tr>
+<tr class="http"><td>503</td><td>Service Unavailable</td><td>Server temporarily unavailable</td></tr>
+<tr class="http"><td>504</td><td>Gateway Timeout</td><td>Upstream server did not respond in time</td></tr>
+<tr class="http"><td>505</td><td>HTTP Version Not Supported</td><td>Server does not support HTTP version used</td></tr>
+<tr class="http"><td>506</td><td>Variant Also Negotiates</td><td>Content negotiation error</td></tr>
+<tr class="http"><td>507</td><td>Insufficient Storage</td><td>Server cannot store representation</td></tr>
+<tr class="http"><td>508</td><td>Loop Detected</td><td>Infinite loop detected</td></tr>
+<tr class="http"><td>510</td><td>Not Extended</td><td>Further extensions required</td></tr>
+<tr class="http"><td>511</td><td>Network Authentication Required</td><td>Client needs to authenticate to gain network access</td></tr>
+
+<!-- Windows codes (20 common) -->
+<tr class="win32"><td>0x00000000</td><td>S_OK</td><td>Operation successful</td></tr>
+<tr class="win32"><td>0x80004005</td><td>E_FAIL</td><td>Unspecified error</td></tr>
+<tr class="win32"><td>0x80070005</td><td>E_ACCESSDENIED</td><td>Access denied</td></tr>
+<tr class="win32"><td>0x80070057</td><td>E_INVALIDARG</td><td>Invalid argument</td></tr>
+<tr class="win32"><td>0x80004004</td><td>E_ABORT</td><td>Operation aborted</td></tr>
+<tr class="win32"><td>0x80004002</td><td>E_NOINTERFACE</td><td>No such interface supported</td></tr>
+<tr class="win32"><td>0x80004001</td><td>E_NOTIMPL</td><td>Not implemented</td></tr>
+<tr class="win32"><td>0x80004003</td><td>E_POINTER</td><td>Invalid pointer</td></tr>
+<tr class="win32"><td>0x8000FFFF</td><td>E_UNEXPECTED</td><td>Unexpected failure</td></tr>
+<tr class="win32"><td>0x8007000E</td><td>E_OUTOFMEMORY</td><td>Out of memory</td></tr>
+<tr class="win32"><td>0x80070006</td><td>E_HANDLE</td><td>Invalid handle</td></tr>
+<tr class="win32"><td>0x80070057</td><td>E_INVALIDARG</td><td>One or more arguments are invalid</td></tr>
+<tr class="win32"><td>0x80070216</td><td>ERROR_NOACCESS</td><td>Attempted to access memory that cannot be read</td></tr>
+<tr class="win32"><td>0x8007007E</td><td>ERROR_MOD_NOT_FOUND</td><td>Module not found</td></tr>
+<tr class="win32"><td>0x8007000B</td><td>ERROR_BAD_FORMAT</td><td>Bad executable format</td></tr>
+<tr class="win32"><td>0x8007010B</td><td>ERROR_PATH_NOT_FOUND</td><td>Path not found</td></tr>
+<tr class="win32"><td>0x800703E3</td><td>ERROR_BUSY</td><td>Resource is busy</td></tr>
+<tr class="win32"><td>0x800700AA</td><td>ERROR_ALREADY_EXISTS</td><td>File already exists</td></tr>
+<tr class="win32"><td>0x80070490</td><td>ERROR_NOT_FOUND</td><td>Element not found</td></tr>
+<tr class="win32"><td>0x80070002</td><td>ERROR_FILE_NOT_FOUND</td><td>The system cannot find the file specified</td></tr>
+
+</table>
+
+<script>
+  // Simple table search
+  const searchInput = document.getElementById('search');
+  searchInput.addEventListener('input', function() {
+    const filter = searchInput.value.toLowerCase();
+    const rows = document.querySelectorAll('#errorTable tr');
+    rows.forEach((row, index) => {
+      if(index === 0) return; // skip header
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(filter) ? '' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
